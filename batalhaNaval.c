@@ -1,27 +1,20 @@
 #include <stdio.h>
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
 
 int main() {
     int tabuleiro[10][10] = {0}; // Inicializa o tabuleiro com zeros (água)
 
     // Inserindo o primeiro navio na linha 4 ocupando as colunas B, C e D
-    int linhaNavio1 = 4; // Índices começam em 0
-    int inicioColuna1 = 1; // Índice 1 representa a coluna B
+    int linhaNavio1 = 0; // Índices começam em 0
+    int inicioColuna1 = 2; // Índice 1 representa a coluna B
 
     for (int i = 0; i < 3; i++) { tabuleiro[linhaNavio1][inicioColuna1 + i] = 3;} // Insere o navio
 
     // Inserindo o segundo navio na coluna B, ocupando as linhas 7, 8 e 9
     int colunaNavio2 = 1; // Índice 1 representa a coluna B
 
-    for (int i = 6; i < 9; i++) { // Índices 6, 7 e 8 correspondem às linhas 7, 8 e 9
+    for (int i = 7; i < 10; i++) { // Índices 6, 7 e 8 correspondem às linhas 7, 8 e 9
         tabuleiro[i][colunaNavio2] = 3; // Insere o segundo navio
     }
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
    
     // Inserindo navios na diagonal (da posição A1 até D4) (da posição J1 até H3)
     //Navio diagonal1
@@ -33,6 +26,48 @@ int main() {
         tabuleiro[i][9 - i] = 3;
     }
 
+    //Saída de habilidade em octaedro: 
+
+    int Octaedro1 = 4;
+    int InicioOctaedro1 = 7; //Índice 1 representa a coluna
+    int Octaedro2 = 8; //Índice 1 representa a coluna
+    int InicioOctaedro2 = 3;
+ for (int i = 0; i < 3; i++) { tabuleiro[Octaedro1][InicioOctaedro1 + i] = 3;}
+    for (int i = 0; i < 3; i++) {tabuleiro[InicioOctaedro2 + i][Octaedro2] = 3;}// Insere o navio
+
+    // Saída de habilidade em cone:
+
+     // Criando um triângulo de 3 linhas e 5 colunas
+    tabuleiro[7][7] = 3;  // Topo do triângulo
+    tabuleiro[8][6] = 3;
+    tabuleiro[8][7] = 3;
+    tabuleiro[8][8] = 3;
+    tabuleiro[9][5] = 3;
+    tabuleiro[9][6] = 3;
+    tabuleiro[9][7] = 3;
+    tabuleiro[9][8] = 3;
+    tabuleiro[9][9] = 3;  // Base do triângulo
+
+    //Saída de Habilidade em cruz:
+
+    int linhaCruz = 5;   // Posição central da cruz
+    int colunaCruz = 3;
+    int altura = 3;      // Quantidade de linhas na cruz
+    int largura = 5;     // Quantidade de colunas na cruz
+
+    // Criando parte vertical
+    for (int i = linhaCruz - altura / 2; i <= linhaCruz + altura / 2; i++) {
+        if (i >= 0 && i < 10) { // Verifica limites do tabuleiro
+            tabuleiro[i][colunaCruz] = 3;
+        }
+    }
+
+    // Criando parte horizontal
+    for (int j = colunaCruz - largura / 2; j <= colunaCruz + largura / 2; j++) {
+        if (j >= 0 && j < 10) { // Verifica limites do tabuleiro
+            tabuleiro[linhaCruz][j] = 3;
+        }
+    }
 
     // Exibindo o tabuleiro
     printf("\n*** TABULEIRO BATALHA NAVAL ***\n\n");
@@ -63,24 +98,5 @@ for (int i = 0; i < 10; i++) {
 }
 
 
-// Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
-
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+   
   
