@@ -33,6 +33,23 @@ for (int i = 0; i < 10; i++) {
     }
         printf("\n");
 
+for (int i = 0; i < 10; i++) {
+        printf("%2d ", i+1); // Exibir número da linha
+
+for (int j = 0; j < 10; j++) {
+    if (tabuleiro[i][j] == 3)
+        printf("3 "); // Primeiro navio
+    else if (tabuleiro[i][j] == 3)
+        printf("3 "); // Segundo navio
+    else
+        printf("0 "); // Água
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
@@ -59,5 +76,4 @@ for (int i = 0; i < 10; i++) {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
-    return 0;
-}
+  }
